@@ -1,0 +1,130 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Custom styling for range sliders */
+  .range-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 24px; /* Slightly larger for better touch target */
+    height: 24px;
+    background: #3b82f6;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-top: -10px; /* Adjusted for larger thumb */
+    transition: transform 0.2s ease; /* Smooth scaling on interaction */
+  }
+
+  .range-slider:hover::-webkit-slider-thumb {
+    transform: scale(1.1); /* Slight grow effect on hover */
+  }
+
+  .range-slider::-moz-range-thumb {
+    width: 24px;
+    height: 24px;
+    background: #3b82f6;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.2s ease;
+  }
+
+  .range-slider:hover::-moz-range-thumb {
+    transform: scale(1.1);
+  }
+
+  .range-slider::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 6px; /* Slightly thicker for visibility */
+    background: #e5e7eb;
+    border-radius: 4px;
+  }
+
+  .range-slider::-moz-range-track {
+    width: 100%;
+    height: 6px;
+    background: #e5e7eb;
+    border-radius: 4px;
+  }
+
+  /* Add focus styles for accessibility */
+  .range-slider:focus {
+    outline: none;
+  }
+
+  .range-slider:focus::-webkit-slider-thumb {
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5); /* Blue focus ring */
+  }
+
+  .range-slider:focus::-moz-range-thumb {
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+  }
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 640px) {
+  #root {
+    padding: 1rem; /* Match mobile padding */
+  }
+
+  .max-w-2xl {
+    max-width: 100%;
+    padding: 1rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .question label {
+    font-size: 0.9rem;
+    line-height: 1.25rem;
+  }
+
+  .rating-value {
+    font-size: 1rem;
+  }
+
+  button {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .space-y-6 > * + * {
+    margin-top: 1rem; /* Reduce spacing on mobile */
+  }
+}
+
+/* Animation for logo (keeping your original) */
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+/* Additional utility classes */
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
